@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="issue"
+            type="com.githubrepo.data.db.entities.Issue" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/circular_image"
+            android:contentDescription="@string/content"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/title_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/user_image"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_toEndOf="@id/user_image"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:minWidth="100dp"
+            android:text="@{issue.title}"
+            android:textColor="@color/colorText"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_placeholder"
+            android:layout_alignStart="@id/title_placeholder"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:maxLength="143"
+            android:text="@{issue.updated_at}"
+            android:textColor="@color/colorText"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/user_image"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif"
+            android:maxLength="143"
+            android:text="@{issue.body}"
+            android:textColor="@color/colorText"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/body"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif"
+            android:text="@{issue.comments==0? `No Comments yet`: issue.comments+` Comments`}"
+            android:textColor="@color/colorText"
+            android:textSize="12sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/comments"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@color/colorLine" />
+
+    </RelativeLayout>
+
+</layout>

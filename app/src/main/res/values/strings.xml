@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Github Repo</string>
+    <string name="sort_comments">Sort by Comments</string>
+    <string name="sort_title">Sort by Title</string>
+    <string name="content">content</string>
+</resources>
